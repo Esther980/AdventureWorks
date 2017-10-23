@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdventureWorks.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,12 @@ namespace AdventureWorks.Controllers
         public ActionResult About()
         {
             return View();
+        }
+
+        public JsonResult GetData()
+        {
+            MessagesRepository _messageRepository = new MessagesRepository();
+            return Json(_messageRepository.GetAllMessages(), JsonRequestBehavior.AllowGet);
         }
     }
 }
