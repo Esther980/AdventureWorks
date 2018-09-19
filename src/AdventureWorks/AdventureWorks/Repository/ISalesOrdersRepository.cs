@@ -14,5 +14,7 @@ namespace AdventureWorks.Repository
         List<SalesOrder> GetSalesOrders(int? customerID = null);
 
         List<SalesOrderDetails> GetSalesOrderDetails(int orderId);
+
+        List<ReportViewModel> GetSalesReport();
     }
 }

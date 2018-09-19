@@ -36,5 +36,11 @@ namespace AdventureWorks.Controllers
         }
 
 
+        public JsonResult GetSalesReport()
+        {
+            return Json(_ordersRepo.GetSalesReport(), JsonRequestBehavior.AllowGet);
+        }
+
+
     }
 }

@@ -60,5 +60,24 @@ namespace AdventureWorks.Repository
             }
         }
 
+
+        public List<ReportViewModel> GetSalesReport()
+        {
+            try
+            {
+                SqlConnection sqlConnection = this.GetConnection();
+                IList<ReportViewModel> orderList =
+                    sqlConnection.Query<ReportViewModel>(
+                    "GetSalesReport",
+                    commandType: CommandType.StoredProcedure).ToList();
+                sqlConnection.Close();
+                
+                return orderList.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

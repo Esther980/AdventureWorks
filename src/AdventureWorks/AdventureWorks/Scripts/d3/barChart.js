@@ -45,7 +45,7 @@ this.Data = function(data) {
 
   g.append("g")
       .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y).ticks(Math.min(10, ceil), ""))
+      .call(d3.axisLeft(y).ticks(Math.min(10, ceil), ",f"))
     .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)

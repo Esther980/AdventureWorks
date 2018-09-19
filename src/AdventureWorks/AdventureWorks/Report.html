@@ -51,6 +51,8 @@
         
         <h1>Number of orders per ship method</h1>
         <svg id="pie" width="600" height="400"></svg>
+        <h1>Average sales per product (size 52)</h1>
+        <svg id="sales" width="600" height="400"></svg>
 
         <script type="text/javascript">
             $(function () {
@@ -77,6 +79,19 @@
             }).success(function (data) {
                 $("svg#pie").empty();
                 var c = new BarChart("svg#pie", { topMargin: 0.1 });
+                c.Data(data);
+            }).error(function (e) {
+                alert(e);
+                });
+
+
+            $.ajax({
+                url: '/SalesOrders/GetSalesReport',
+                type: 'GET',
+                dataType: 'json'
+            }).success(function (data) {
+                $("svg#sales").empty();
+                var c = new BarChart("svg#sales", { topMargin: 0.1 });
                 c.Data(data);
             }).error(function (e) {
                 alert(e);
